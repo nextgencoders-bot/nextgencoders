@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 220" width="100%" height="100%">
+  <g fill="none" stroke="#00C8FF" stroke-width="32" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Interlocking S & N Monogram in Aqua Blue -->
+    <path d="M 85 45 C 48 45 32 65 32 88 C 32 112 55 120 90 125 C 125 130 140 140 140 160 C 140 182 112 195 78 195 C 40 195 20 172 15 150" />
+    <path d="M 140 195 L 140 45 L 220 195 L 220 45" />
+  </g>
+</svg>

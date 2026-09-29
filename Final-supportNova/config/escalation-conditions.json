@@ -1,0 +1,8 @@
+[
+  {"id":"ESC-001","name":"Safety incident","pattern":"\\b(fire|smoke|burn|injur|electric shock|overheat)\\b","level":"Critical Management Escalation","priority":"P1"},
+  {"id":"ESC-002","name":"Privacy breach","pattern":"\\b(data breach|another customer|personal information|privacy concern)\\b","level":"Compliance Review","priority":"P1"},
+  {"id":"ESC-003","name":"Account compromise","pattern":"\\b(unauthorized|compromis|locked out|suspicious login|password reset)\\b","level":"Specialist Team","priority":"P2"},
+  {"id":"ESC-010","name":"Legal threat","pattern":"\\b(lawyer|legal action|sue|attorney general|small claims)\\b","level":"Department Manager","priority":"P2"},
+  {"id":"ESC-020","name":"Repeat unresolved","pattern":"\\b(again|still unresolved|second time|third time|escalated before)\\b","level":"Supervisor Review","priority":"P2"},
+  {"id":"ESC-030","name":"Prompt injection attempt","pattern":"ignore (all )?(previous|prior|your) instructions|system prompt|override policy|guaranteed refund","level":"Supervisor Review","priority":"P2"}
+]

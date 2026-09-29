@@ -1,0 +1,1908 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zenvix | Premium Cyber Hardware & Support Hub</title>
+    
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
+    <style>
+      :root {
+        --bg-dark: #100e0b;
+        --card-bg: rgba(255, 255, 255, 0.03);
+        --card-border: rgba(255, 255, 255, 0.08);
+        --accent-blue: #0c18d2;
+        --accent-cyan: #38bdf8;
+        --accent-rose: #c8a8a6;
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: var(--bg-dark);
+        color: var(--text-main);
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      h1, h2, h3, h4, .logo {
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      .aura-bg {
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+      }
+
+      .aura-layer-1 {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 120% 145% at 50% -50%, rgba(0,0,0,0) 60%, rgb(12,24,210) 78%, rgba(0,0,0,0) 85%);
+        mix-blend-mode: screen;
+        filter: blur(60px);
+        pointer-events: none;
+      }
+
+      .aura-layer-2 {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 120% 145% at 50% -50%, rgba(0,0,0,0) 55%, rgba(12,24,210,0.4) 80%, rgba(0,0,0,0) 100%);
+        mix-blend-mode: screen;
+        filter: blur(180px);
+        opacity: 0.9;
+        pointer-events: none;
+      }
+
+      .aura-layer-3 {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 120% 145% at 50% -50%, rgba(0,0,0,0) 83.5%, #c8a8a6 84.5%, rgba(0,0,0,0) 85.5%);
+        mix-blend-mode: lighten;
+        filter: blur(60px);
+        opacity: 0.8;
+        pointer-events: none;
+      }
+
+      .content-wrapper {
+        position: relative;
+        z-index: 1;
+      }
+
+      .glass-card {
+        background: var(--card-bg);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--card-border);
+        border-radius: 14px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .glass-card:hover {
+        border-color: rgba(56, 189, 248, 0.3);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.75rem 1.4rem;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        font-size: 0.95rem;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 100%);
+        color: #ffffff;
+        box-shadow: 0 0 20px rgba(12, 24, 210, 0.35);
+      }
+
+      .btn-primary:hover {
+        box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
+        transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text-main);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .btn-danger {
+        background: rgba(239, 68, 68, 0.2);
+        color: #f87171;
+        border: 1px solid rgba(239, 68, 68, 0.3);
+      }
+
+      .btn-danger:hover {
+        background: rgba(239, 68, 68, 0.4);
+      }
+
+      .btn-full {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+
+      .section-header h2 {
+        font-size: 2.3rem;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.5px;
+      }
+
+      .section-header h2 span {
+        color: var(--accent-cyan);
+      }
+
+      .section-header p {
+        color: var(--text-muted);
+        font-size: 1rem;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(16, 14, 11, 0.88);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 8%;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        letter-spacing: 1px;
+        text-decoration: none;
+      }
+
+      .logo i {
+        color: var(--accent-cyan);
+        filter: drop-shadow(0 0 8px var(--accent-cyan));
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        margin: 0;
+      }
+
+      .nav-links a {
+        color: #cbd5e1;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+        font-size: 0.95rem;
+      }
+
+      .nav-links a:hover, .nav-links a.active {
+        color: var(--accent-cyan);
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+      }
+
+      .cart-icon {
+        position: relative;
+        font-size: 1.3rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        color: #fff;
+        transition: transform 0.2s;
+      }
+
+      .cart-icon:hover {
+        transform: scale(1.1);
+      }
+
+      .cart-badge {
+        position: absolute;
+        top: -2px;
+        right: -4px;
+        background: var(--accent-cyan);
+        color: #000;
+        font-size: 0.7rem;
+        font-weight: 800;
+        padding: 2px 6px;
+        border-radius: 10px;
+        min-width: 18px;
+        text-align: center;
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 1.4rem;
+        cursor: pointer;
+        color: #fff;
+      }
+
+      .hero-section {
+        padding: 4rem 8%;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .hero-container {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.4rem 1rem;
+        background: rgba(12, 24, 210, 0.25);
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        color: var(--accent-cyan);
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 1.2rem;
+      }
+
+      .hero-content h1 {
+        font-size: 3.2rem;
+        line-height: 1.15;
+        margin-bottom: 1.2rem;
+      }
+
+      .hero-content h1 span {
+        background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-rose) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero-content p {
+        color: var(--text-muted);
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+      }
+
+      .hero-btns {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .main-hero-card {
+        padding: 1.2rem;
+        position: relative;
+      }
+
+      .main-hero-card img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .card-tag {
+        position: absolute;
+        top: 1.8rem;
+        left: 1.8rem;
+        background: rgba(16, 14, 11, 0.9);
+        padding: 0.3rem 0.8rem;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: var(--accent-cyan);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .hero-card-details {
+        margin-top: 1rem;
+      }
+
+      .price-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0.6rem;
+      }
+
+      .price {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--accent-cyan);
+      }
+
+      .products-section {
+        padding: 4rem 8%;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .catalog-controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .search-box {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .search-box input {
+        width: 100%;
+        padding: 0.85rem 1rem 0.85rem 2.8rem;
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px solid var(--card-border);
+        border-radius: 30px;
+        color: #fff;
+        font-size: 0.95rem;
+        outline: none;
+        transition: all 0.3s;
+      }
+
+      .search-box input:focus {
+        border-color: var(--accent-cyan);
+        box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+      }
+
+      .search-box i {
+        position: absolute;
+        left: 1.1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+      }
+
+      .filter-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #cbd5e1;
+        padding: 0.5rem 1.3rem;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .filter-btn.active, .filter-btn:hover {
+        background: rgba(12, 24, 210, 0.4);
+        border-color: var(--accent-cyan);
+        color: #fff;
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1.8rem;
+      }
+
+      .product-card {
+        padding: 1.1rem;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .product-card-top {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+      }
+
+      .product-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .product-card:hover img {
+        transform: scale(1.06);
+      }
+
+      .badge {
+        position: absolute;
+        top: 0.8rem;
+        right: 0.8rem;
+        background: var(--accent-blue);
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 0.25rem 0.6rem;
+        border-radius: 4px;
+        text-transform: uppercase;
+        z-index: 2;
+      }
+
+      .product-info .category {
+        font-size: 0.75rem;
+        color: var(--accent-rose);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+      }
+
+      .product-info h3 {
+        font-size: 1.1rem;
+        margin: 0.3rem 0;
+        line-height: 1.3;
+      }
+
+      .stars {
+        color: #f59e0b;
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+      }
+
+      .product-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 0.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .btn-icon-add {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: #fff;
+        padding: 0.5rem 0.9rem;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-weight: 600;
+        font-size: 0.85rem;
+        transition: all 0.3s;
+      }
+
+      .btn-icon-add:hover {
+        background: var(--accent-cyan);
+        color: #000;
+        border-color: var(--accent-cyan);
+      }
+
+      .support-section {
+        padding: 4rem 8%;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .cms-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+      }
+
+      .cms-card {
+        padding: 2rem;
+      }
+
+      .cms-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .cms-card h3 i {
+        color: var(--accent-cyan);
+      }
+
+      .cms-card p {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.2rem;
+      }
+
+      .form-group label {
+        display: block;
+        font-size: 0.85rem;
+        color: #cbd5e1;
+        margin-bottom: 0.4rem;
+        font-weight: 500;
+      }
+
+      .form-group input, .form-group select, .form-group textarea {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px solid var(--card-border);
+        border-radius: 8px;
+        color: #fff;
+        outline: none;
+        font-size: 0.95rem;
+        transition: border-color 0.3s;
+      }
+
+      .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+        border-color: var(--accent-cyan);
+      }
+
+      /* Ticket Status Tracker Visual Timeline */
+      .tracker-result {
+        margin-top: 1.5rem;
+        padding: 1.2rem;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .ticket-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding-bottom: 0.8rem;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .ticket-id-tag {
+        font-family: monospace;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: var(--accent-cyan);
+      }
+
+      .status-pill {
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .status-pending { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+      .status-review { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); }
+      .status-resolved { background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.4); }
+
+      .timeline {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-top: 2rem;
+      }
+
+      .timeline::before {
+        content: '';
+        position: absolute;
+        top: 14px;
+        left: 10%;
+        right: 10%;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.15);
+        z-index: 1;
+      }
+
+      .timeline-step {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        flex: 1;
+      }
+
+      .step-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #1e293b;
+        border: 2px solid #64748b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 0.5rem;
+        font-size: 0.75rem;
+        color: #64748b;
+        transition: all 0.3s;
+      }
+
+      .timeline-step.active .step-icon {
+        background: var(--accent-blue);
+        border-color: var(--accent-cyan);
+        color: #fff;
+        box-shadow: 0 0 12px var(--accent-cyan);
+      }
+
+      .step-label {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+
+      .timeline-step.active .step-label {
+        color: #fff;
+        font-weight: 600;
+      }
+
+      .orders-section {
+        padding: 4rem 8%;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .orders-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .order-item-card {
+        padding: 1.2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .order-details-meta span {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      .order-id-badge {
+        font-family: monospace;
+        color: var(--accent-cyan);
+        font-weight: bold;
+        font-size: 1.05rem;
+      }
+
+      .drawer-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(8px);
+        z-index: 999;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .drawer-overlay.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .cart-drawer {
+        position: fixed;
+        top: 0;
+        right: -420px;
+        width: 100%;
+        max-width: 400px;
+        height: 100vh;
+        background: #12100d;
+        border-left: 1px solid var(--card-border);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8);
+      }
+
+      .cart-drawer.open {
+        right: 0;
+      }
+
+      .drawer-header {
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--card-border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .close-drawer {
+        background: transparent;
+        border: none;
+        color: var(--text-muted);
+        font-size: 1.4rem;
+        cursor: pointer;
+      }
+
+      .close-drawer:hover { color: #fff; }
+
+      .cart-items-container {
+        flex: 1;
+        overflow-y: auto;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+
+      .cart-item {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 0.8rem;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .cart-item img {
+        width: 65px;
+        height: 65px;
+        object-fit: cover;
+        border-radius: 6px;
+      }
+
+      .cart-item-info {
+        flex: 1;
+      }
+
+      .cart-item-title {
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin-bottom: 0.2rem;
+      }
+
+      .cart-item-price {
+        color: var(--accent-cyan);
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+
+      .qty-control {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.4rem;
+      }
+
+      .qty-btn {
+        width: 24px;
+        height: 24px;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+      }
+
+      .qty-btn:hover { background: var(--accent-cyan); color: #000; }
+
+      .cart-footer {
+        padding: 1.5rem;
+        border-top: 1px solid var(--card-border);
+        background: rgba(0, 0, 0, 0.4);
+      }
+
+      .summary-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.6rem;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .summary-row.total {
+        font-size: 1.2rem;
+        color: #fff;
+        font-weight: bold;
+        margin-top: 0.8rem;
+        padding-top: 0.8rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        z-index: 1100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .modal.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .modal-content {
+        background: #14120f;
+        border: 1px solid var(--card-border);
+        border-radius: 14px;
+        width: 100%;
+        max-width: 520px;
+        padding: 2rem;
+        position: relative;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 1.2rem;
+        right: 1.2rem;
+        background: transparent;
+        border: none;
+        color: var(--text-muted);
+        font-size: 1.3rem;
+        cursor: pointer;
+      }
+
+      .modal-close:hover { color: #fff; }
+
+      .toast-container {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 2000;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      .toast {
+        background: #181612;
+        border: 1px solid var(--accent-cyan);
+        color: #fff;
+        padding: 0.9rem 1.4rem;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        transform: translateY(20px);
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      .toast.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .toast i {
+        color: var(--accent-cyan);
+        font-size: 1.2rem;
+      }
+
+      footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 4rem 8% 2rem;
+        margin-top: 4rem;
+        background: rgba(12, 10, 8, 0.95);
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+        gap: 2.5rem;
+        max-width: 1300px;
+        margin: 0 auto 3rem;
+      }
+
+      .footer-col h4 {
+        color: var(--text-main);
+        font-size: 1.1rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .footer-col ul {
+        list-style: none;
+      }
+
+      .footer-col ul li {
+        margin-bottom: 0.6rem;
+      }
+
+      .footer-col a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s;
+      }
+
+      .footer-col a:hover {
+        color: var(--accent-cyan);
+      }
+
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 1.5rem;
+        max-width: 1300px;
+        margin: 0 auto;
+        color: #64748b;
+        font-size: 0.85rem;
+      }
+
+      @media (max-width: 900px) {
+        .hero-container, .cms-grid { grid-template-columns: 1fr; }
+        .footer-container { grid-template-columns: 1fr 1fr; }
+        .menu-toggle { display: block; }
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: #100e0b;
+          flex-direction: column;
+          padding: 1.5rem;
+          text-align: center;
+          border-bottom: 1px solid var(--card-border);
+        }
+        .nav-links.active { display: flex; }
+      }
+
+      @media (max-width: 500px) {
+        .footer-container { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="aura-bg">
+      <div class="aura-layer-1" aria-hidden="true"></div>
+      <div class="aura-layer-2" aria-hidden="true"></div>
+      <div class="aura-layer-3" aria-hidden="true"></div>
+
+      <div class="content-wrapper">
+        <!-- Header / Navigation -->
+        <header>
+          <nav class="navbar">
+            <a href="#hero" class="logo"><i class="fa-solid fa-cube"></i> ZENVIX</a>
+            <ul class="nav-links" id="navLinks">
+              <li><a href="#hero" class="active">Home</a></li>
+              <li><a href="#products">Store</a></li>
+              <li><a href="#orders">My Orders</a></li>
+              <li><a href="#support">Support & Complaints</a></li>
+              <li><a href="/manage">Agent / Admin Login</a></li>
+              <li><a href="#about">About</a></li>
+            </ul>
+            <div class="nav-actions">
+              <div class="cart-icon" id="cartBtn" title="View Cart">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-badge" id="cartCount">0</span>
+              </div>
+              <div class="menu-toggle" id="mobileMenu">
+                <i class="fa-solid fa-bars"></i>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <section id="hero" class="hero-section">
+          <div class="hero-container">
+            <div class="hero-content">
+              <div class="hero-badge">
+                <i class="fa-solid fa-bolt"></i> Cyber Hardware Series 2026
+              </div>
+              <h1>Minimal Gear. <span>Maximum Precision.</span></h1>
+              <p>
+                Engineered for programmers, creators, and hardcore gamers. Discover our flagship mechanical keyboards, studio audio, high-refresh displays, and ergonomic desk gear.
+              </p>
+              <div class="hero-btns">
+                <a href="#products" class="btn btn-primary">
+                  Explore Hardware <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#support" class="btn btn-secondary">
+                  <i class="fa-solid fa-headset"></i> Complaint Portal
+                </a>
+              </div>
+            </div>
+
+            <!-- Hero Flagship Spotlight Card -->
+            <div class="hero-image-card">
+              <div class="glass-card main-hero-card">
+                <span class="card-tag">Flagship Showcase</span>
+                <img
+                  src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80"
+                  alt="Zenvix Pro RGB Mechanical Keyboard"
+                />
+                <div class="hero-card-details">
+                  <h3>Zenvix Pro RGB Apex Keyboard</h3>
+                  <p style="color: var(--text-muted); font-size: 0.85rem;">Aircraft-grade aluminum, hot-swappable tactile switches.</p>
+                  <div class="price-row">
+                    <span class="price">$189.00</span>
+                    <button class="btn btn-primary" onclick="quickAddToCart(1)">
+                      <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="products" class="products-section">
+          <div class="section-header">
+            <h2>Hardware <span>Catalog</span></h2>
+            <p>Filter by category or search our high-performance inventory.</p>
+          </div>
+
+          <!-- Search and Category Filter -->
+          <div class="catalog-controls">
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="searchInput" placeholder="Search gear by title or keyword..." onkeyup="filterProducts()">
+            </div>
+            
+            <div class="filter-tabs">
+              <button class="filter-btn active" onclick="setCategory('all', this)">All Hardware</button>
+              <button class="filter-btn" onclick="setCategory('keyboards', this)"><i class="fa-solid fa-keyboard"></i> Keyboards</button>
+              <button class="filter-btn" onclick="setCategory('audio', this)"><i class="fa-solid fa-headphones"></i> Audio</button>
+              <button class="filter-btn" onclick="setCategory('displays', this)"><i class="fa-solid fa-desktop"></i> Displays</button>
+              <button class="filter-btn" onclick="setCategory('accessories', this)"><i class="fa-solid fa-plug"></i> Accessories</button>
+            </div>
+          </div>
+
+          <!-- Dynamic Products Grid -->
+          <div class="products-grid" id="productsGrid">
+            <!-- Generated via Javascript -->
+          </div>
+        </section>
+
+        <section id="orders" class="orders-section">
+          <div class="section-header">
+            <h2>Your Order <span>History</span></h2>
+            <p>Track your generated order IDs and review your past purchases.</p>
+            <button class="btn btn-secondary" type="button" onclick="openCustomerLogin()">Customer sign in</button>
+          </div>
+          
+          <div class="glass-card" style="padding: 2rem;">
+            <div class="orders-list" id="ordersListContainer">
+              <!-- Orders injected dynamically -->
+            </div>
+          </div>
+        </section>
+
+        <section id="support" class="support-section">
+          <div class="section-header">
+            <h2>Complaint & <span>Support Hub</span></h2>
+            <p>Report issues with your order or track live ticket status using your Order ID.</p>
+          </div>
+
+          <div class="cms-grid">
+            <!-- Lodge Complaint Form Card -->
+            <div class="glass-card cms-card">
+              <h3><i class="fa-solid fa-circle-exclamation"></i> Lodge a Complaint</h3>
+              <p>Enter your unique Order ID (e.g. ZX-982415) to submit a formal service request.</p>
+
+              <form id="complaintForm" onsubmit="handleLodgeComplaint(event)">
+                <div class="form-group">
+                  <label for="compOrderId">Order ID *</label>
+                  <input type="text" id="compOrderId" placeholder="e.g. ZX-982415" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="compType">Issue Category *</label>
+                  <select id="compType" required>
+                    <option value="" disabled selected>Select issue category</option>
+                    <option value="Damaged Item">Damaged / Defective Item</option>
+                    <option value="Delivery Delay">Shipment / Delivery Delay</option>
+                    <option value="Wrong Item">Incorrect Item Delivered</option>
+                    <option value="Technical Issue">Technical / Firmware Defect</option>
+                    <option value="Other">Other Query</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="compDetails">Complaint Description *</label>
+                  <textarea id="compDetails" rows="4" placeholder="Describe the issue in detail..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                  <i class="fa-solid fa-paper-plane"></i> Submit Complaint Ticket
+                </button>
+              </form>
+            </div>
+
+            <!-- Ticket Tracker Card -->
+            <div class="glass-card cms-card">
+              <h3><i class="fa-solid fa-magnifying-glass-chart"></i> Live Ticket Tracker</h3>
+              <p>Search by your Ticket ID (e.g. TKT-10492) or Order ID to view real-time status.</p>
+
+              <div class="form-group">
+                <label for="trackerSearchInput">Ticket ID or Order ID</label>
+                <div style="display: flex; gap: 0.5rem;">
+                  <input type="text" id="trackerSearchInput" placeholder="Enter TKT-XXXXX or ZX-XXXXXX" />
+                  <button type="button" class="btn btn-secondary" onclick="trackTicket()">Search</button>
+                </div>
+              </div>
+
+              <!-- Status Display Container -->
+              <div id="trackerDisplay" class="tracker-result" style="display: none;">
+                <!-- Dynamically populated via JavaScript -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" style="padding: 4rem 8%; max-width: 1300px; margin: 0 auto;">
+          <div class="glass-card" style="padding: 3rem; text-align: center; max-width: 800px; margin: 0 auto;">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem;">About <span style="color: var(--accent-cyan);">ZENVIX</span></h2>
+            <p style="color: var(--text-muted); font-size: 1.05rem;">
+              Zenvix is a premier cyber hardware studio focused on building high-performance workspace peripherals. From acoustically dampening mechanical keyboards to color-calibrated gaming panels, every product is engineered with minimal aesthetic lines and robust durability.
+            </p>
+          </div>
+        </section>
+
+        <footer>
+          <div class="footer-container">
+            <div class="footer-col brand-col">
+              <a href="#hero" class="logo" style="margin-bottom: 1rem;"><i class="fa-solid fa-cube"></i> ZENVIX</a>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">
+                Crafted for elite coders, creators, and cyber enthusiasts worldwide.
+              </p>
+            </div>
+
+            <div class="footer-col">
+              <h4>Navigation</h4>
+              <ul>
+                <li><a href="#hero">Home Showcase</a></li>
+                <li><a href="#products">Product Catalog</a></li>
+                <li><a href="#orders">Order History</a></li>
+                <li><a href="#support">Complaint Portal</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h4>Customer Support</h4>
+              <ul>
+                <li><a href="#support">Track Ticket Status</a></li>
+                <li><a href="#support">Lodge Complaint</a></li>
+                <li><a href="#">Warranty Guidelines</a></li>
+                <li><a href="#">Shipping Rates & Policies</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <h4>Security & Payments</h4>
+              <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">
+                Protected by 256-bit SSL encryption. All transactions generate instant order receipts.
+              </p>
+              <div style="display: flex; gap: 0.8rem; font-size: 1.5rem; color: var(--text-muted);">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-brands fa-cc-apple-pay"></i>
+                <i class="fa-brands fa-cc-paypal"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <p>&copy; 2026 Zenvix Inc. All rights reserved.</p>
+            <p style="color: var(--text-muted);">Cyber Hardware Systems v2.4</p>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <div class="drawer-overlay" id="drawerOverlay" onclick="closeCartDrawer()"></div>
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="drawer-header">
+        <h3><i class="fa-solid fa-bag-shopping" style="color: var(--accent-cyan);"></i> Your Shopping Cart</h3>
+        <button class="close-drawer" onclick="closeCartDrawer()">&times;</button>
+      </div>
+
+      <div class="cart-items-container" id="cartItemsList">
+        <!-- Cart items rendered dynamically -->
+      </div>
+
+      <div class="cart-footer">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">$0.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Est. Tax (8%)</span>
+          <span id="cartTax">$0.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping</span>
+          <span id="cartShipping">FREE</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total</span>
+          <span id="cartTotal">$0.00</span>
+        </div>
+        <button class="btn btn-primary btn-full" style="margin-top: 1.2rem;" onclick="openCheckoutModal()">
+          Proceed to Checkout <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="modal" id="checkoutModal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeCheckoutModal()">&times;</button>
+        <h3 style="margin-bottom: 0.5rem;"><i class="fa-solid fa-shield-halved" style="color: var(--accent-cyan);"></i> Complete Checkout</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Enter shipping details to finalize your order and generate your Order ID.</p>
+
+        <form id="checkoutForm" onsubmit="processCheckout(event)">
+          <div id="checkoutAccountFields">
+          <div class="form-group">
+            <label for="custName">Full Name *</label>
+            <input type="text" id="custName" required placeholder="e.g. Alex Mercer" />
+          </div>
+
+          <div class="form-group">
+            <label for="custEmail">Email Address *</label>
+            <input type="email" id="custEmail" required placeholder="alex@zenvix.io" />
+          </div>
+          <div class="form-group">
+            <label for="custPassword">Customer account password *</label>
+            <input type="password" id="custPassword" required minlength="12" autocomplete="new-password" placeholder="At least 12 characters" />
+            <small style="color: var(--text-muted);">Creates your secure account or signs you in to view order history and submit complaints.</small>
+          </div>
+          </div>
+          <p id="checkoutSignedInNotice" style="display:none; color: var(--text-muted); margin: 0 0 1rem;"></p>
+
+          <div class="form-group">
+            <label for="custAddress">Shipping Address *</label>
+            <input type="text" id="custAddress" required placeholder="104 Cybernetics Way, Sector 7" />
+          </div>
+
+          <div class="form-group">
+            <label for="custPayment">Payment Method</label>
+            <select id="custPayment">
+              <option value="Credit Card / Debit Card">Credit Card / Debit Card</option>
+              <option value="CyberPay Instant">CyberPay Instant</option>
+              <option value="Crypto (USDT / BTC)">Crypto (USDT / BTC)</option>
+            </select>
+          </div>
+
+          <div style="background: rgba(12, 24, 210, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); padding: 1rem; border-radius: 8px; margin-bottom: 1.2rem;">
+            <div style="display: flex; justify-content: space-between; font-weight: bold;">
+              <span>Amount Due:</span>
+              <span id="checkoutAmount" style="color: var(--accent-cyan);">$0.00</span>
+            </div>
+          </div>
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1rem;">This checkout saves your order and selected payment method. Online payment processing is not configured.</p>
+
+          <button type="submit" class="btn btn-primary btn-full">
+            Confirm & Generate Order ID
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="customerLoginModal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeCustomerLogin()">&times;</button>
+        <h3 style="margin-bottom: 0.5rem;">Customer sign in</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Sign in to see your saved orders and track complaints.</p>
+        <form id="customerLoginForm" onsubmit="customerSignIn(event)">
+          <div class="form-group"><label for="loginEmail">Email address</label><input type="email" id="loginEmail" required autocomplete="username"></div>
+          <div class="form-group"><label for="loginPassword">Password</label><input type="password" id="loginPassword" required minlength="12" autocomplete="current-password"></div>
+          <button type="submit" class="btn btn-primary btn-full">Sign in</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="orderSuccessModal">
+      <div class="modal-content" style="text-align: center;">
+        <i class="fa-solid fa-circle-check" style="font-size: 3.5rem; color: #4ade80; margin-bottom: 1rem;"></i>
+        <h2>Order Confirmed!</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">Thank you for choosing Zenvix Hardware.</p>
+
+        <div style="background: rgba(0,0,0,0.4); border: 1px solid var(--accent-cyan); border-radius: 10px; padding: 1.2rem; margin: 1.5rem 0;">
+          <span style="font-size: 0.8rem; color: var(--text-muted); display: block; text-transform: uppercase;">Your Unique Order ID</span>
+          <div id="confirmedOrderId" style="font-family: monospace; font-size: 1.6rem; font-weight: bold; color: var(--accent-cyan); margin: 0.4rem 0;">ZX-000000</div>
+          <p style="font-size: 0.75rem; color: #cbd5e1;">Save this Order ID! You can use it to log complaints or track shipments.</p>
+        </div>
+
+        <div style="display: flex; gap: 0.8rem;">
+          <button class="btn btn-secondary btn-full" onclick="copyOrderId()">
+            <i class="fa-solid fa-copy"></i> Copy Order ID
+          </button>
+          <button class="btn btn-primary btn-full" onclick="closeOrderSuccessModal()">
+            Done
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+      function escapeHtml(value) {
+        return String(value ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+      }
+      const PRODUCTS = [
+        {
+          id: 1,
+          name: "Zenvix Pro RGB Apex Keyboard",
+          category: "keyboards",
+          price: 189.00,
+          badge: "Flagship",
+          rating: 5,
+          image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80",
+          desc: "Crafted with aircraft aluminum casing, hot-swappable tactile switches, and ultra-fast wireless response."
+        },
+        {
+          id: 2,
+          name: "Zenvix Vortex 75% Custom",
+          category: "keyboards",
+          price: 149.00,
+          badge: "Bestseller",
+          rating: 5,
+          image: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=600&q=80",
+          desc: "Compact layout mechanical keyboard featuring gasket mount structure and pre-lubed linear switches."
+        },
+        {
+          id: 3,
+          name: "Zenvix CyberBlade Split Ergonomic",
+          category: "keyboards",
+          price: 219.00,
+          badge: "Pro",
+          rating: 4.5,
+          image: "https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=600&q=80",
+          desc: "Split ortholinear ergonomic keyboard built to minimize wrist fatigue for hardcore programmers."
+        },
+        {
+          id: 4,
+          name: "Zenvix Acoustic Studio Pro",
+          category: "audio",
+          price: 229.00,
+          badge: "Studio",
+          rating: 5,
+          image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80",
+          desc: "Active noise cancelling planar magnetic studio headphones with zero-latency wireless audio driver."
+        },
+        {
+          id: 5,
+          name: "Zenvix Pulse Wireless ANC Earbuds",
+          category: "audio",
+          price: 129.00,
+          badge: "New",
+          rating: 4.5,
+          image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80",
+          desc: "Compact true wireless earbuds with spatial audio processing and magnetic fast charging dock."
+        },
+        {
+          id: 6,
+          name: "Zenvix Precision Wireless Mouse",
+          category: "accessories",
+          price: 79.99,
+          badge: "Popular",
+          rating: 5,
+          image: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=600&q=80",
+          desc: "Ultralight 58-gram gaming mouse with 26K DPI optical sensor and PTFE glide feet."
+        },
+        {
+          id: 7,
+          name: "Zenvix Horizon 34\" Curved OLED",
+          category: "displays",
+          price: 899.00,
+          badge: "Ultimate",
+          rating: 5,
+          image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80",
+          desc: "175Hz Quantum Dot OLED curved display with 0.1ms response time and HDR1000 luminescence."
+        },
+        {
+          id: 8,
+          name: "Zenvix Apex 27\" 240Hz Esports Display",
+          category: "displays",
+          price: 499.00,
+          badge: "Hot",
+          rating: 4.5,
+          image: "https://images.unsplash.com/photo-1551645120-d70bfe84c826?auto=format&fit=crop&w=600&q=80",
+          desc: "Fast IPS panel with G-Sync compatibility and ultra-narrow glass bezels for dual-monitor setups."
+        },
+        {
+          id: 9,
+          name: "Zenvix Phantom Desk Mat XL",
+          category: "accessories",
+          price: 34.99,
+          badge: "Essential",
+          rating: 5,
+          image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=600&q=80",
+          desc: "Water-resistant micro-weave cloth mat with non-slip rubber base and RGB illuminated border."
+        },
+        {
+          id: 10,
+          name: "Zenvix CyberDock 10-in-1 Hub",
+          category: "accessories",
+          price: 99.00,
+          badge: "Versatile",
+          rating: 4.5,
+          image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+          desc: "Thunderbolt 4 compatible docking station supporting dual 4K output, 100W PD charging, and SD reader."
+        },
+        {
+          id: 11,
+          name: "Zenvix RGB Headphones Stand & Charger",
+          category: "accessories",
+          price: 45.00,
+          badge: "Accessory",
+          rating: 4,
+          image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=600&q=80",
+          desc: "Solid aluminium headphone stand featuring integrated wireless QI phone charging pad."
+        },
+        {
+          id: 12,
+          name: "Zenvix Linear Custom Switch Pack (100x)",
+          category: "keyboards",
+          price: 55.00,
+          badge: "Mod Kit",
+          rating: 5,
+          image: "https://images.unsplash.com/photo-1541140134513-88a761458b32?auto=format&fit=crop&w=600&q=80",
+          desc: "Ultra-smooth pre-lubricated mechanical switches engineered for buttery tactile typing feel."
+        }
+      ];
+
+      // Application Local State
+      let cart = JSON.parse(localStorage.getItem("zenvix_cart")) || [];
+      let orders = [];
+      let customerUser = null;
+
+      let currentCategory = "all";
+
+      window.onload = async function() {
+        renderProducts();
+        updateCartUI();
+        renderOrdersList();
+        await loadServerData();
+      };
+
+      function saveState() {
+        localStorage.setItem("zenvix_cart", JSON.stringify(cart));
+      }
+
+      async function loadServerData() {
+        try {
+          const sessionResponse = await fetch("/api/me", { credentials: "same-origin" });
+          const sessionData = await sessionResponse.json();
+          customerUser = sessionData.user?.role === "customer" ? sessionData.user : null;
+          updateCheckoutAccountState();
+          const response = await fetch("/api/store/orders", { credentials: "same-origin" });
+          if (!response.ok) throw new Error();
+          orders = (await response.json()).orders || [];
+        } catch { orders = []; }
+        renderOrdersList();
+      }
+
+      function updateCheckoutAccountState() {
+        const fields = document.getElementById("checkoutAccountFields");
+        const notice = document.getElementById("checkoutSignedInNotice");
+        if (!fields || !notice) return;
+        fields.style.display = customerUser ? "none" : "block";
+        fields.querySelectorAll("input").forEach((input) => { input.disabled = Boolean(customerUser); });
+        notice.style.display = customerUser ? "block" : "none";
+        notice.textContent = customerUser ? `Signed in as ${customerUser.name} (${customerUser.email}). Your order will be saved to this account.` : "";
+      }
+
+      function openCustomerLogin() { document.getElementById("customerLoginModal").classList.add("open"); }
+      function closeCustomerLogin() { document.getElementById("customerLoginModal").classList.remove("open"); }
+      async function customerSignIn(e) {
+        e.preventDefault();
+        const response = await fetch("/api/customer-access", { method: "POST", credentials: "same-origin", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: document.getElementById("loginEmail").value, password: document.getElementById("loginPassword").value }) });
+        const data = await response.json();
+        if (!response.ok) { showToast(data.error || "Customer sign-in failed."); return; }
+        closeCustomerLogin(); document.getElementById("customerLoginForm").reset(); await loadServerData(); showToast("Signed in. Your orders are loaded.");
+      }
+
+      function renderProducts() {
+        const grid = document.getElementById("productsGrid");
+        const searchVal = document.getElementById("searchInput").value.toLowerCase().trim();
+
+        const filtered = PRODUCTS.filter(p => {
+          const matchesCat = currentCategory === "all" || p.category === currentCategory;
+          const matchesSearch = p.name.toLowerCase().includes(searchVal) || p.desc.toLowerCase().includes(searchVal);
+          return matchesCat && matchesSearch;
+        });
+
+        if (filtered.length === 0) {
+          grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-muted);">
+            <i class="fa-solid fa-ghost" style="font-size: 2.5rem; margin-bottom: 1rem; display: block;"></i>
+            No hardware items matched your filter or search query.
+          </div>`;
+          return;
+        }
+
+        grid.innerHTML = filtered.map(product => {
+          return `
+            <div class="product-card glass-card">
+              <div>
+                <div class="product-card-top">
+                  <span class="badge">${product.badge}</span>
+                  <img src="${product.image}" alt="${product.name}" loading="lazy" onerror="this.src='https://placehold.co/600x400/100e0b/38bdf8?text=Hardware+Item'">
+                </div>
+                <div class="product-info">
+                  <span class="category">${product.category}</span>
+                  <h3>${product.name}</h3>
+                  <div class="stars">
+                    ${'<i class="fa-solid fa-star"></i>'.repeat(Math.floor(product.rating))}
+                    ${product.rating % 1 !== 0 ? '<i class="fa-solid fa-star-half-stroke"></i>' : ''}
+                  </div>
+                </div>
+              </div>
+              <div class="product-footer">
+                <span class="price">$${product.price.toFixed(2)}</span>
+                <button class="btn-icon-add" onclick="quickAddToCart(${product.id})">
+                  <i class="fa-solid fa-cart-plus"></i> Add
+                </button>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function setCategory(cat, btnElem) {
+        currentCategory = cat;
+        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+        if(btnElem) btnElem.classList.add("active");
+        renderProducts();
+      }
+
+      function filterProducts() {
+        renderProducts();
+      }
+
+      function quickAddToCart(productId) {
+        const prod = PRODUCTS.find(p => p.id === productId);
+        if (!prod) return;
+
+        const existingItem = cart.find(item => item.id === productId);
+        if (existingItem) {
+          existingItem.qty += 1;
+        } else {
+          cart.push({
+            id: prod.id,
+            name: prod.name,
+            price: prod.price,
+            image: prod.image,
+            qty: 1
+          });
+        }
+
+        saveState();
+        updateCartUI();
+        showToast(`Added "${prod.name}" to your cart!`);
+      }
+
+      function changeCartQty(id, delta) {
+        const item = cart.find(i => i.id === id);
+        if (!item) return;
+
+        item.qty += delta;
+        if (item.qty <= 0) {
+          cart = cart.filter(i => i.id !== id);
+        }
+
+        saveState();
+        updateCartUI();
+      }
+
+      function updateCartUI() {
+        const totalItemsCount = cart.reduce((sum, item) => sum + item.qty, 0);
+        document.getElementById("cartCount").innerText = totalItemsCount;
+
+        const cartListContainer = document.getElementById("cartItemsList");
+        if (cart.length === 0) {
+          cartListContainer.innerHTML = `
+            <div style="text-align: center; color: var(--text-muted); margin-auto: 0;">
+              <i class="fa-solid fa-basket-shopping" style="font-size: 3rem; margin-bottom: 1rem; color: rgba(255,255,255,0.1);"></i>
+              <p>Your shopping cart is currently empty.</p>
+            </div>
+          `;
+        } else {
+          cartListContainer.innerHTML = cart.map(item => `
+            <div class="cart-item">
+              <img src="${item.image}" alt="${item.name}">
+              <div class="cart-item-info">
+                <div class="cart-item-title">${item.name}</div>
+                <div class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</div>
+                <div class="qty-control">
+                  <button class="qty-btn" onclick="changeCartQty(${item.id}, -1)">-</button>
+                  <span style="font-size: 0.85rem; font-weight: bold;">${item.qty}</span>
+                  <button class="qty-btn" onclick="changeCartQty(${item.id}, 1)">+</button>
+                </div>
+              </div>
+              <button style="background: none; border: none; color: #f87171; cursor: pointer;" onclick="changeCartQty(${item.id}, -${item.qty})">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </div>
+          `).join('');
+        }
+
+        // Calculations
+        const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+        const tax = subtotal * 0.08;
+        const shipping = subtotal > 100 || subtotal === 0 ? 0 : 15.00;
+        const total = subtotal + tax + shipping;
+
+        document.getElementById("cartSubtotal").innerText = `$${subtotal.toFixed(2)}`;
+        document.getElementById("cartTax").innerText = `$${tax.toFixed(2)}`;
+        document.getElementById("cartShipping").innerText = shipping === 0 ? "FREE" : `$${shipping.toFixed(2)}`;
+        document.getElementById("cartTotal").innerText = `$${total.toFixed(2)}`;
+        document.getElementById("checkoutAmount").innerText = `$${total.toFixed(2)}`;
+      }
+
+      document.getElementById("cartBtn").onclick = function() {
+        document.getElementById("cartDrawer").classList.add("open");
+        document.getElementById("drawerOverlay").classList.add("open");
+      };
+
+      function closeCartDrawer() {
+        document.getElementById("cartDrawer").classList.remove("open");
+        document.getElementById("drawerOverlay").classList.remove("open");
+      }
+
+      function openCheckoutModal() {
+        if (cart.length === 0) {
+          showToast("Your cart is empty! Add items before checking out.");
+          return;
+        }
+        closeCartDrawer();
+        document.getElementById("checkoutModal").classList.add("open");
+      }
+
+      function closeCheckoutModal() {
+        document.getElementById("checkoutModal").classList.remove("open");
+      }
+
+      async function processCheckout(e) {
+        e.preventDefault();
+        const address = document.getElementById("custAddress").value;
+        const button = document.querySelector("#checkoutForm button[type=submit]");
+        button.disabled = true;
+        try {
+          if (!customerUser) {
+            const access = await fetch("/api/customer-access", { method: "POST", credentials: "same-origin", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ name: document.getElementById("custName").value, email: document.getElementById("custEmail").value, password: document.getElementById("custPassword").value }) });
+            const accessData = await access.json();
+            if (!access.ok) throw new Error(accessData.error || "Customer sign-in failed.");
+            customerUser = accessData.user;
+          }
+          const response = await fetch("/api/store/orders", { method: "POST", credentials: "same-origin", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ address, payment_method: document.getElementById("custPayment").value, items: cart.map(({id, qty}) => ({id, qty})) }) });
+          const data = await response.json();
+          if (!response.ok) throw new Error(data.error || "Order could not be saved.");
+          const newOrder = data.order;
+          cart = []; saveState(); updateCartUI(); closeCheckoutModal();
+          document.getElementById("checkoutForm").reset();
+          document.getElementById("confirmedOrderId").innerText = newOrder.orderId;
+          document.getElementById("orderSuccessModal").classList.add("open");
+          await loadServerData();
+        } catch (error) {
+          showToast(error.message || "Order could not be placed. Please try again.");
+        } finally { button.disabled = false; }
+      }
+
+      function closeOrderSuccessModal() {
+        document.getElementById("orderSuccessModal").classList.remove("open");
+      }
+
+      function copyOrderId() {
+        const idText = document.getElementById("confirmedOrderId").innerText;
+        
+        // Execute fallback copy for iframe compatibility
+        const tempInput = document.createElement("input");
+        tempInput.value = idText;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+
+        showToast(`Copied Order ID (${idText}) to clipboard!`);
+      }
+
+      function renderOrdersList() {
+        const container = document.getElementById("ordersListContainer");
+        if (orders.length === 0) {
+          container.innerHTML = `<p style="color: var(--text-muted); text-align: center;">Sign in or place an order to see your saved order history.</p>`;
+          return;
+        }
+
+        container.innerHTML = orders.map(ord => `
+          <div class="order-item-card glass-card">
+            <div>
+              <div class="order-id-badge">${ord.orderId}</div>
+              <div class="order-details-meta" style="margin-top: 0.3rem;">
+                <span>Date: ${ord.date} | Status: ${ord.status}</span>
+                <span>Items: ${ord.items.map(i => `${i.name} (x${i.qty})`).join(', ')}</span>
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <div style="font-weight: bold; color: var(--accent-cyan); font-size: 1.1rem;">$${ord.total.toFixed(2)}</div>
+              <button class="btn btn-secondary" style="padding: 0.3rem 0.7rem; font-size: 0.75rem; margin-top: 0.4rem;" onclick="prefillComplaint('${ord.orderId}')">
+                <i class="fa-solid fa-triangle-exclamation"></i> Lodge Issue
+              </button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      function prefillComplaint(orderId) {
+        document.getElementById("compOrderId").value = orderId;
+        window.location.hash = "support";
+        showToast(`Pre-filled Order ID ${orderId} in Support Form.`);
+      }
+
+      async function handleLodgeComplaint(e) {
+        e.preventDefault();
+
+        const orderIdInput = document.getElementById("compOrderId").value.trim().toUpperCase();
+        const issueType = document.getElementById("compType").value;
+        const details = document.getElementById("compDetails").value;
+
+        const matchingOrder = orders.find(o => o.orderId.toUpperCase() === orderIdInput);
+        if (!matchingOrder) { showToast("Choose an order from your signed-in order history."); return; }
+        try {
+          const response = await fetch("/api/tickets", { method: "POST", credentials: "same-origin", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ title: issueType, description: details, order_id: orderIdInput, product: matchingOrder.items.map(i => i.name).join(", "), requested_resolution: "Please investigate this order complaint.", channel: "Web" }) });
+          const data = await response.json();
+          if (!response.ok) throw new Error(data.error || "Complaint could not be submitted.");
+          const ticketId = data.ticket.id;
+          document.getElementById("complaintForm").reset();
+          const needsReview = ["Pending Admin Review", "Escalated"].includes(data.ticket.status);
+          showToast(`Complaint ${ticketId} automatically analyzed and ${needsReview ? "sent to reviewer queue" : "assigned to a support agent"}.`);
+          document.getElementById("trackerSearchInput").value = ticketId;
+          await trackTicket();
+        } catch (error) { showToast(error.message || "Complaint could not be submitted."); }
+      }
+
+      async function trackTicket() {
+        const query = document.getElementById("trackerSearchInput").value.trim().toUpperCase();
+        const display = document.getElementById("trackerDisplay");
+
+        if (!query) {
+          showToast("Please enter an Order ID or Ticket ID to search.");
+          return;
+        }
+
+        let ticket;
+        try {
+          const response = await fetch(`/api/store/tickets?q=${encodeURIComponent(query)}`, { credentials: "same-origin" });
+          const data = await response.json();
+          if (!response.ok) throw new Error(data.error || "Sign in with your customer account to track complaints.");
+          ticket = (data.tickets || [])[0];
+        } catch (error) { showToast(error.message || "Sign in with your customer account to track complaints."); return; }
+
+        display.style.display = "block";
+
+        if (!ticket) {
+          display.innerHTML = `
+            <div style="text-align: center; color: var(--text-muted); padding: 1rem;">
+              <i class="fa-solid fa-circle-question" style="font-size: 2rem; color: #f87171; margin-bottom: 0.5rem; display: block;"></i>
+              No complaint ticket found for "<strong>${escapeHtml(query)}</strong>".
+              <p style="font-size: 0.8rem; margin-top: 0.4rem;">Ensure you typed the exact Order ID (e.g. ZX-982415) or Ticket ID (e.g. TKT-10492).</p>
+            </div>
+          `;
+          return;
+        }
+
+        
+        let stepNum = 1;
+        if (["Assigned", "In Progress", "Escalated", "Awaiting Customer"].includes(ticket.status)) stepNum = 2;
+        if (["Resolved", "Closed"].includes(ticket.status)) stepNum = 4;
+
+        display.innerHTML = `
+          <div class="ticket-header">
+            <div>
+              <span class="ticket-id-tag">${escapeHtml(ticket.ticketId)}</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Order ID: ${escapeHtml(ticket.orderId || "")}</span>
+            </div>
+            <span class="status-pill ${stepNum === 4 ? 'status-resolved' : 'status-review'}">${ticket.status}</span>
+          </div>
+
+          <div style="font-size: 0.85rem; margin-bottom: 1rem;">
+              <strong>Category:</strong> ${escapeHtml(ticket.type || ticket.title)}<br>
+              <strong>Details:</strong> "${escapeHtml(ticket.description)}"<br>
+              ${ticket.customer_update ? `<strong>Update:</strong> ${escapeHtml(ticket.customer_update)}<br>` : ""}
+              <span style="color: var(--text-muted); font-size: 0.75rem;">Submitted on: ${escapeHtml(ticket.date)}</span>
+          </div>
+
+          <!-- Progress Visualizer -->
+          <div class="timeline">
+            <div class="timeline-step ${stepNum >= 1 ? 'active' : ''}">
+              <div class="step-icon"><i class="fa-solid fa-file-signature"></i></div>
+              <div class="step-label">Logged</div>
+            </div>
+            <div class="timeline-step ${stepNum >= 2 ? 'active' : ''}">
+              <div class="step-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+              <div class="step-label">Review</div>
+            </div>
+            <div class="timeline-step ${stepNum >= 3 ? 'active' : ''}">
+              <div class="step-icon"><i class="fa-solid fa-wrench"></i></div>
+              <div class="step-label">Action Taken</div>
+            </div>
+            <div class="timeline-step ${stepNum >= 4 ? 'active' : ''}">
+              <div class="step-icon"><i class="fa-solid fa-circle-check"></i></div>
+              <div class="step-label">Resolved</div>
+            </div>
+          </div>
+        `;
+      }
+
+      function showToast(message) {
+        const container = document.getElementById("toastContainer");
+        const toast = document.createElement("div");
+        toast.className = "toast";
+        toast.innerHTML = `<i class="fa-solid fa-bell"></i> <span>${message}</span>`;
+        container.appendChild(toast);
+
+        setTimeout(() => toast.classList.add("show"), 10);
+
+        setTimeout(() => {
+          toast.classList.remove("show");
+          setTimeout(() => toast.remove(), 300);
+        }, 3500);
+      }
+
+      document.getElementById("mobileMenu").onclick = function() {
+        document.getElementById("navLinks").classList.toggle("active");
+      };
+    </script>
+  </body>
+</html>
